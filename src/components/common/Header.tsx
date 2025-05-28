@@ -3,6 +3,19 @@ import React, { useState, useEffect } from 'react';
 import { MapPin, Menu, X } from 'lucide-react';
 import Button from './Button';
 
+// UI
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,9 +44,36 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <Button onClick={() => console.log('Login clicked')} variant="primary">
-              Login
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="primary" className="text-base px-6 py-3">
+                  Login
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Login</DialogTitle>
+                  <DialogDescription>Gmailアドレスでログインしてください。</DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="gmail" className="text-right">
+                      gmail
+                    </Label>
+                    <Input id="gmail" placeholder="example@gmail.com" className="col-span-3" />
+                  </div>
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="pass" className="text-right">
+                      password
+                    </Label>
+                    <Input id="pass" defaultValue="" className="col-span-3" />
+                  </div>
+                </div>
+                <DialogFooter>
+                  <Button type="submit">Login</Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
           </div>
 
           {/* Mobile Menu Button */}
