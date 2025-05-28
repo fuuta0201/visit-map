@@ -43,7 +43,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="flex items-center space-x-6">
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="primary" className="text-base px-6 py-3">
@@ -52,8 +52,10 @@ const Header: React.FC = () => {
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                  <DialogTitle>Login</DialogTitle>
-                  <DialogDescription>Gmailアドレスでログインしてください。</DialogDescription>
+                  <DialogTitle className="text-left">Login</DialogTitle>
+                  <DialogDescription className="text-left">
+                    Gmailアドレスでログインしてください。
+                  </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
                   <div className="grid grid-cols-4 items-center gap-4">
@@ -77,18 +79,18 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-700 hover:text-blue-600 focus:outline-none"
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu
       {isMobileMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
@@ -99,7 +101,7 @@ const Header: React.FC = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </header>
   );
 };
