@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { MapPinned, Navigation, Compass } from 'lucide-react';
-import Button from '@/components/common/Button';
+import Link from 'next/link';
 
 // UI
 import {
@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import Button from '@/components/common/Button';
 
 const Hero: React.FC = () => {
   return (
@@ -71,6 +72,11 @@ const Hero: React.FC = () => {
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
+              <Link href={'/spots/'}>
+                <Button variant="outline" className="text-base px-6 py-3">
+                  スポットを探す
+                </Button>
+              </Link>
             </div>
           </div>
 
