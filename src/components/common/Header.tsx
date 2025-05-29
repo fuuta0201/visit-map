@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { MapPin, Menu, X } from 'lucide-react';
-import Button from './Button';
+import Link from 'next/link';
 
 // UI
 import {
@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import Button from './Button';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,9 +38,11 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <MapPin className="h-6 w-6 text-blue-600" />
-            <span className="ml-2 text-xl font-semibold text-gray-900">VisitMap</span>
+          <div>
+            <Link href={'/'} className="flex items-center">
+              <MapPin className="h-6 w-6 text-blue-600" />
+              <span className="ml-2 text-xl font-semibold text-gray-900">VisitMap</span>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
