@@ -41,7 +41,7 @@ export const dummyPosts: Spot[] = [
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
     imageUrl: '/images/dummy-image.png',
-    rating: 4,
+    rating: 5,
     latitude: 35.681382,
     longitude: 139.76608399999998,
     prefecture: '東京都',
@@ -73,7 +73,7 @@ export const dummyPosts: Spot[] = [
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
     imageUrl: '/images/dummy-image.png',
-    rating: 4,
+    rating: 1,
     latitude: 35.681382,
     longitude: 139.76608399999998,
     prefecture: '東京都',
@@ -105,7 +105,7 @@ export const dummyPosts: Spot[] = [
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
     imageUrl: '/images/dummy-image.png',
-    rating: 4,
+    rating: 2,
     latitude: 35.681382,
     longitude: 139.76608399999998,
     prefecture: '東京都',
@@ -137,7 +137,7 @@ export const dummyPosts: Spot[] = [
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
     imageUrl: '/images/dummy-image.png',
-    rating: 4,
+    rating: 5,
     latitude: 35.681382,
     longitude: 139.76608399999998,
     prefecture: '東京都',
@@ -153,7 +153,7 @@ export const dummyPosts: Spot[] = [
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
     imageUrl: '/images/dummy-image.png',
-    rating: 4,
+    rating: 3,
     latitude: 35.681382,
     longitude: 139.76608399999998,
     prefecture: '東京都',
