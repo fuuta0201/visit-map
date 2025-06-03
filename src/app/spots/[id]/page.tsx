@@ -1,9 +1,11 @@
 import React from 'react';
 import { getSpotById, getRelatedSpots } from '@/lib/dummyData';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // UI
 import RelatedSpots from '@/components/spotsDetail/RelatedSpots';
+import ArrowButton from '@/components/common/ArrowButton';
 
 interface PostPageProps {
   params: {
@@ -55,15 +57,26 @@ const page = async ({ params }: PostPageProps) => {
             <dt>投稿日：</dt>
             <dd>{formattedCreatedAt}</dd>
           </div>
+          <div className="flex">
+            <dt>評価：</dt>
+            <dd>{spot.rating}</dd>
+          </div>
           <div className="flex items-center gap-2">
             <dt>投稿者：</dt>
             <dd>{spot.userName}</dd>
           </div>
         </dl>
-        <div className="mb-8">
+        <div className="mb-12">
           <p>{spot.message}</p>
         </div>
         {relatedSpots && <RelatedSpots relatedSpots={relatedSpots} />}
+        <div className="pt-8">
+          <Link href={'/spots/'}>
+            <ArrowButton variant="primary" className="text-base px-6 py-3">
+              一覧に戻る
+            </ArrowButton>
+          </Link>
+        </div>
       </div>
     </div>
   );
