@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 // UI
 import RelatedSpots from '@/components/spotsDetail/RelatedSpots';
+import Map from '@/components/spotsDetail/Map';
 import ArrowButton from '@/components/common/ArrowButton';
 
 interface PostPageProps {
@@ -12,6 +13,8 @@ interface PostPageProps {
     id: string;
   };
 }
+
+const Maps_API_KEY = process.env.NEXT_PUBLIC_Maps_API_KEY;
 
 const page = async ({ params }: PostPageProps) => {
   // Get Spot
@@ -69,6 +72,15 @@ const page = async ({ params }: PostPageProps) => {
         <div className="mb-12">
           <p>{spot.message}</p>
         </div>
+        {Maps_API_KEY && (
+          <Map
+            latitude={spot.latitude}
+            longitude={spot.longitude}
+            apiKey={Maps_API_KEY}
+            pref={spot.prefecture}
+            city={spot.city}
+          />
+        )}
         {relatedSpots && <RelatedSpots relatedSpots={relatedSpots} />}
         <div className="pt-8">
           <Link href={'/spots/'}>
