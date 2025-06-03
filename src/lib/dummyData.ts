@@ -186,3 +186,10 @@ export const getSpots = async (): Promise<Spot[] | undefined> => {
 export const getSpotById = async (id: number): Promise<Spot | undefined> => {
   return dummyPosts.find((post) => post.id === id);
 };
+
+export const getRelatedSpots = async (pref: string): Promise<Spot[] | undefined> => {
+  const relatedSpot = dummyPosts.filter((spot: Spot) => spot.prefecture === pref);
+  return relatedSpot
+    .sort((a: Spot, b: Spot) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
+    .slice(0, 3);
+};
