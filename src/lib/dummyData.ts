@@ -1,6 +1,6 @@
 // lib/dummyData.ts
 
-export interface Post {
+export interface Spot {
   id: number;
   userId: string;
   userName: string;
@@ -16,7 +16,7 @@ export interface Post {
   updatedAt: string;
 }
 
-export const dummyPosts: Post[] = [
+export const dummyPosts: Spot[] = [
   {
     id: 1,
     userId: '123',
@@ -179,10 +179,10 @@ export const dummyPosts: Post[] = [
   },
 ];
 
-export const getPosts = async (): Promise<Post[] | undefined> => {
+export const getSpots = async (): Promise<Spot[] | undefined> => {
   return dummyPosts;
 };
 
-export const getPostById = async (id: number): Promise<Post | undefined> => {
+export const getSpotById = async (id: number): Promise<Spot | undefined> => {
   return dummyPosts.find((post) => post.id === id);
 };
