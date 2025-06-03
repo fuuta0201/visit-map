@@ -13,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import Card from '@/components/spots/Card';
+import Card from '@/components/common/Card';
 
 type Props = {
   spotsProp: Spot[];
@@ -71,17 +71,18 @@ const SpotsDisplay = ({ spotsProp }: Props) => {
           </Select>
         </li>
       </ul>
-      <ul className="flex flex-col gap-7">
+      <ul className="flex flex-col gap-6 md:grid md:grid-cols-3 md:justify-between md:gap-x-3 md:gap-y-6">
         {spots.map((spot, _) => (
           <li key={spot.id}>
-            <Link href={`/spots/${spot.id}`}>
-              <Card
-                title={spot.title}
-                addr={`${spot.prefecture}${spot.city}`}
-                userName={spot.userName}
-                figure={spot.imageUrl}
-              />
-            </Link>
+            <Card
+              title={spot.title}
+              userName={spot.userName}
+              addr={`${spot.prefecture}${spot.city}`}
+              createdAt={spot.createdAt}
+              figure={spot.imageUrl}
+              link={`/spots/${spot.id}`}
+              rate={spot.rating}
+            />
           </li>
         ))}
       </ul>

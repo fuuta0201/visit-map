@@ -2,7 +2,7 @@ import React from 'react';
 import type { Spot } from '@/lib/dummyData';
 
 // UI
-import Card from '@/components/spotsDetail/Card';
+import Card from '@/components/common/Card';
 
 type Props = {
   relatedSpots: Spot[];
