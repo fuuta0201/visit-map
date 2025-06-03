@@ -24,12 +24,12 @@ const SpotsDisplay = ({ spotsProp }: Props) => {
 
   useEffect(() => {
     if (spotsProp) {
-      setSpots({ ...spotsProp });
+      setSpots([...spotsProp]);
     }
   }, []);
 
   if (!spots) {
-    return;
+    return <p>投稿データが見つかりませんでした。</p>;
   }
 
   const handleSortChange = (type: string) => {
@@ -45,7 +45,7 @@ const SpotsDisplay = ({ spotsProp }: Props) => {
       });
     }
 
-    setSpots({ ...sortedSpots });
+    setSpots([...sortedSpots]);
   };
   return (
     <>
