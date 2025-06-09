@@ -14,7 +14,7 @@ const RelatedSpots = ({ relatedSpots }: Props) => {
       <h2 className="text-xl md:text-2xl font-bold mb-3">Related News</h2>
       <ul className="flex flex-col gap-2 md:flex-row md:justify-between md:gap-0">
         {relatedSpots.map((spot, _) => (
-          <li key={spot.id} className="max-w-full md:max-w-[30%]">
+          <li key={spot.id} className="max-w-full min-w-[30%]">
             <Card
               title={spot.title}
               userName={spot.userName}

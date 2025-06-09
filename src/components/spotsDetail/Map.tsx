@@ -26,7 +26,7 @@ const Map = ({ latitude, longitude, apiKey, pref, city }: Props) => {
           allowFullScreen={true}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="w-full rounded-t-lg h-80"
+          className="w-full rounded-l-lg h-80"
         ></iframe>
         <div className="flex flex-col justify-between p-4 leading-normal w-full md:w-[40%]">
           <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900">
