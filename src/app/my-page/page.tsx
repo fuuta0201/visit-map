@@ -1,9 +1,10 @@
 import React from 'react';
-import { getUserData } from '@/lib/dummyData';
+import { getUserData, getSpotsByUserId } from '@/lib/dummyData';
+import Link from 'next/link';
 
 const page = async () => {
   const user = await getUserData(1);
-  console.log(user);
+  const spots = await getSpotsByUserId(1);
 
   const imageUrl1 =
     'https://lh3.googleusercontent.com/aida-public/AB6AXuDUaEFJHF0YOcGeQsTAdqkaKwFtQV2GSqtDfHo_WeG6PeNW4dsPG4ziBjH3H5FMNaEQSJjQlG_vYn8TfRJC9_fyjIrO7WEJdn8Zu9JMyPfVI1OtSgQOfGmwkaJXSRMjW-8-aDo3mjeM0OCeAQxSu73So7ZMRO4QOdjBDQpx0u4kF2TVg8L5afiixWMdjpMigBEDbdPeENCGL8RYQU4Htl_b8rh14x0aCrKOxgu6oC62wiKyfqyB6toTOFBKPDQI_-rlN77RVaPUT0KW';
@@ -11,22 +12,25 @@ const page = async () => {
     'https://lh3.googleusercontent.com/aida-public/AB6AXuDyH6kdyYshxIcTXsxqkalzRwLwjz-9tKPRvcu_ORMH-N3-gzLnBcZmnmM9ZYZPA7NZ48ZidrBNbswI7aIq2iGWH9RCCtE20YXQVjhWuUBJtkKglqEslNEgCGeQSt3qKccxQdyRKklbBvHJoDVr3GPpHBwAT4BRGzqHlYxLcwRALvaoZogn7XyjwbpOXUV7R1jyLXkKH8uvxkUX6z-h2steMnE1vJdXXs9br_yi6TZ71saPkOusbVzmUMinirQLUZGBNLfhYFzqB92E';
   const imageUrl3 =
     'https://lh3.googleusercontent.com/aida-public/AB6AXuCu4gLoCxkyJSY8xZhfZva0BKv1t3lflWOaoBb7T4lZb6GxtzESOc0r846E3BMc-0Y3a4ZYuXn0nKwI9QbcgztONPNPv2DvP0AnBYcKAFEKHWDj-4zWBrN__P9pCI2q7dOKqALG8NyrVlS1Q5PtJ0jqb033zpLT8BJ5o42XSsF0WxHSXXN8qT22MBa-gJg1Fi1Ds-PeYoEHUcHwt9wGvBKAbw2ykjf0TOkRDBvqDvkQH_i8tVI2IsYQaUrcZw3gJ15ImdlSJGPEkMwf';
+
+  if (!user) return <div>Error: ユーザーデータを読み込めませんでした</div>;
+
   return (
     <div className="px-40 flex flex-1 justify-center py-5">
       <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
-        <div className="flex p-4 @container">
+        <div className="flex px-4 py-12 @container">
           <div className="flex w-full flex-col gap-4 items-center">
             <div className="flex gap-4 flex-col items-center">
               <div
                 className="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32"
-                style={{ backgroundImage: `url("${imageUrl1}")` }}
+                style={{ backgroundImage: `url("${user.imageUrl}")` }}
               ></div>
               <div className="flex flex-col items-center justify-center">
                 <p className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">
-                  Olivia Carter
+                  {user.name}
                 </p>
                 <p className="text-[#5f728c] text-base font-normal leading-normal text-center">
-                  Travel enthusiast | Sharing my adventures around the globe
+                  <span>Email：{user.email}</span>
                 </p>
               </div>
             </div>
@@ -35,62 +39,20 @@ const page = async () => {
             </button>
           </div>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-          <div className="flex flex-col gap-3">
-            <div
-              className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-              style={{ backgroundImage: `url("${imageUrl2}")` }}
-            ></div>
+        {spots && (
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+            {spots.map((spot) => (
+              <div className="flex flex-col gap-3" key={spot.id}>
+                <Link href={`/spots/${spot.id}`}>
+                  <div
+                    className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                    style={{ backgroundImage: `url("${spot.imageUrl}")` }}
+                  ></div>
+                </Link>
+              </div>
+            ))}
           </div>
-          <div className="flex flex-col gap-3">
-            <div
-              className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-              style={{ backgroundImage: `url("${imageUrl3}")` }}
-            ></div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div
-              className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-              style={{ backgroundImage: `url("${imageUrl3}")` }}
-            ></div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div
-              className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-              style={{ backgroundImage: `url("${imageUrl3}")` }}
-            ></div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div
-              className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-              style={{ backgroundImage: `url("${imageUrl3}")` }}
-            ></div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div
-              className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-              style={{ backgroundImage: `url("${imageUrl3}")` }}
-            ></div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div
-              className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-              style={{ backgroundImage: `url("${imageUrl3}")` }}
-            ></div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div
-              className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-              style={{ backgroundImage: `url("${imageUrl3}")` }}
-            ></div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div
-              className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-              style={{ backgroundImage: `url("${imageUrl3}")` }}
-            ></div>
-          </div>
-        </div>
+        )}
         <div className="flex items-center justify-center p-4">
           <a href="#" className="flex size-10 items-center justify-center">
             <div

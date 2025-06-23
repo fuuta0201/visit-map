@@ -27,7 +27,7 @@ export interface User {
 export const dummyPosts: Spot[] = [
   {
     id: 1,
-    userId: '123',
+    userId: '1',
     userName: 'たかし',
     title: 'Cozy Cabin Retreat',
     message:
@@ -43,8 +43,8 @@ export const dummyPosts: Spot[] = [
   },
   {
     id: 2,
-    userId: '231',
-    userName: 'たかし',
+    userId: '2',
+    userName: 'たつこ',
     title: 'Cozy Cabin Retreat',
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
@@ -59,7 +59,7 @@ export const dummyPosts: Spot[] = [
   },
   {
     id: 3,
-    userId: '308',
+    userId: '1',
     userName: 'たかし',
     title: 'Cozy Cabin Retreat',
     message:
@@ -75,8 +75,8 @@ export const dummyPosts: Spot[] = [
   },
   {
     id: 4,
-    userId: '408',
-    userName: 'たかし',
+    userId: '3',
+    userName: '吉郎',
     title: 'Cozy Cabin Retreat',
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
@@ -91,8 +91,8 @@ export const dummyPosts: Spot[] = [
   },
   {
     id: 5,
-    userId: '508',
-    userName: 'たかし',
+    userId: '3',
+    userName: '吉郎',
     title: 'Cozy Cabin Retreat',
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
@@ -107,8 +107,8 @@ export const dummyPosts: Spot[] = [
   },
   {
     id: 6,
-    userId: '308',
-    userName: 'たかし',
+    userId: '2',
+    userName: 'たつこ',
     title: 'Cozy Cabin Retreat',
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
@@ -123,7 +123,7 @@ export const dummyPosts: Spot[] = [
   },
   {
     id: 7,
-    userId: '308',
+    userId: '1',
     userName: 'たかし',
     title: 'Cozy Cabin Retreat',
     message:
@@ -139,8 +139,8 @@ export const dummyPosts: Spot[] = [
   },
   {
     id: 8,
-    userId: '308',
-    userName: 'たかし',
+    userId: '2',
+    userName: 'たつこ',
     title: 'Cozy Cabin Retreat',
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
@@ -155,8 +155,8 @@ export const dummyPosts: Spot[] = [
   },
   {
     id: 9,
-    userId: '308',
-    userName: 'たかし',
+    userId: '3',
+    userName: '吉郎',
     title: 'Cozy Cabin Retreat',
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
@@ -171,8 +171,8 @@ export const dummyPosts: Spot[] = [
   },
   {
     id: 10,
-    userId: '308',
-    userName: 'たかし',
+    userId: '3',
+    userName: '吉郎',
     title: 'Cozy Cabin Retreat',
     message:
       "Nestled in the heart of Mountain View, this cozy cabin offers a tranquil escape from the city bustle. With its rustic charm and modern amenities, it's the perfect spot for a weekend getaway or a longer retreat. Enjoy the warmth of the fireplace, the comfort of the plush furnishings, and the serene views of the surrounding landscape. Whether you're looking to relax by the fire, explore the nearby trails, or simply unwind in a peaceful setting, this cabin provides an idyllic backdrop for your stay.",
@@ -228,4 +228,9 @@ export const getRelatedSpots = async (pref: string): Promise<Spot[] | undefined>
 
 export const getUserData = async (userId: number): Promise<User | undefined> => {
   return dummyUsers.find((user) => user.id === userId);
+};
+
+export const getSpotsByUserId = async (userId: number): Promise<Spot[] | undefined> => {
+  const spot = dummyPosts.filter((spot: Spot) => parseInt(spot.userId) === userId);
+  return spot.sort((a: Spot, b: Spot) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
 };
