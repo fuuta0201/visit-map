@@ -6,13 +6,6 @@ const page = async () => {
   const user = await getUserData(1);
   const spots = await getSpotsByUserId(1);
 
-  const imageUrl1 =
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuDUaEFJHF0YOcGeQsTAdqkaKwFtQV2GSqtDfHo_WeG6PeNW4dsPG4ziBjH3H5FMNaEQSJjQlG_vYn8TfRJC9_fyjIrO7WEJdn8Zu9JMyPfVI1OtSgQOfGmwkaJXSRMjW-8-aDo3mjeM0OCeAQxSu73So7ZMRO4QOdjBDQpx0u4kF2TVg8L5afiixWMdjpMigBEDbdPeENCGL8RYQU4Htl_b8rh14x0aCrKOxgu6oC62wiKyfqyB6toTOFBKPDQI_-rlN77RVaPUT0KW';
-  const imageUrl2 =
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuDyH6kdyYshxIcTXsxqkalzRwLwjz-9tKPRvcu_ORMH-N3-gzLnBcZmnmM9ZYZPA7NZ48ZidrBNbswI7aIq2iGWH9RCCtE20YXQVjhWuUBJtkKglqEslNEgCGeQSt3qKccxQdyRKklbBvHJoDVr3GPpHBwAT4BRGzqHlYxLcwRALvaoZogn7XyjwbpOXUV7R1jyLXkKH8uvxkUX6z-h2steMnE1vJdXXs9br_yi6TZ71saPkOusbVzmUMinirQLUZGBNLfhYFzqB92E';
-  const imageUrl3 =
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuCu4gLoCxkyJSY8xZhfZva0BKv1t3lflWOaoBb7T4lZb6GxtzESOc0r846E3BMc-0Y3a4ZYuXn0nKwI9QbcgztONPNPv2DvP0AnBYcKAFEKHWDj-4zWBrN__P9pCI2q7dOKqALG8NyrVlS1Q5PtJ0jqb033zpLT8BJ5o42XSsF0WxHSXXN8qT22MBa-gJg1Fi1Ds-PeYoEHUcHwt9wGvBKAbw2ykjf0TOkRDBvqDvkQH_i8tVI2IsYQaUrcZw3gJ15ImdlSJGPEkMwf';
-
   if (!user) return <div>Error: ユーザーデータを読み込めませんでした</div>;
 
   return (
