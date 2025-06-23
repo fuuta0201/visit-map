@@ -16,6 +16,14 @@ export interface Spot {
   updatedAt: string;
 }
 
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  imageUrl: string;
+  createdAt: string;
+}
+
 export const dummyPosts: Spot[] = [
   {
     id: 1,
@@ -179,6 +187,30 @@ export const dummyPosts: Spot[] = [
   },
 ];
 
+export const dummyUsers: User[] = [
+  {
+    id: 1,
+    name: 'たかし',
+    email: 'takashi@example.com',
+    imageUrl: '/images/dummy-image.png/',
+    createdAt: '2024-12-20T10:00:00Z',
+  },
+  {
+    id: 2,
+    name: 'たつこ',
+    email: 'tatsuko@example.com',
+    imageUrl: '/images/dummy-image.png/',
+    createdAt: '2025-1-20T10:00:00Z',
+  },
+  {
+    id: 3,
+    name: '吉郎',
+    email: 'yoshiro@example.com',
+    imageUrl: '/images/dummy-image.png/',
+    createdAt: '2025-10-20T10:00:00Z',
+  },
+];
+
 export const getSpots = async (): Promise<Spot[] | undefined> => {
   return dummyPosts;
 };
@@ -192,4 +224,8 @@ export const getRelatedSpots = async (pref: string): Promise<Spot[] | undefined>
   return relatedSpot
     .sort((a: Spot, b: Spot) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
     .slice(0, 3);
+};
+
+export const getUserData = async (userId: number): Promise<User | undefined> => {
+  return dummyUsers.find((user) => user.id === userId);
 };
