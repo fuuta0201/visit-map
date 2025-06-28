@@ -34,5 +34,5 @@ model Spot {
   authorId  String   @map("author_id") // 外部キー
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
-  @@map("posts") // データベース上のテーブル名を指定
+  @@map("spots") // データベース上のテーブル名を指定
 }
