@@ -42,3 +42,5 @@ next-env.d.ts
 
 # supabase DB
 /volumes
+
+/src/generated/prisma
