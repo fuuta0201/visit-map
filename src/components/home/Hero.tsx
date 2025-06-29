@@ -2,6 +2,7 @@
 import React from 'react';
 import { MapPinned, Navigation, Compass } from 'lucide-react';
 import Link from 'next/link';
+import { signInGoogle } from '@/lib/auth/actions';
 
 // UI
 import {
@@ -40,38 +41,11 @@ const Hero: React.FC = () => {
               素敵な場所を見つけ、共有しましょう
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button variant="primary" className="text-base px-6 py-3">
-                    Login with Google
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
-                  <DialogHeader>
-                    <DialogTitle className="text-left">Login</DialogTitle>
-                    <DialogDescription className="text-left">
-                      Gmailアドレスでログインしてください。
-                    </DialogDescription>
-                  </DialogHeader>
-                  <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="gmail" className="text-right">
-                        gmail
-                      </Label>
-                      <Input id="gmail" placeholder="example@gmail.com" className="col-span-3" />
-                    </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="pass" className="text-right">
-                        password
-                      </Label>
-                      <Input id="pass" defaultValue="" className="col-span-3" />
-                    </div>
-                  </div>
-                  <DialogFooter>
-                    <Button type="submit">Login</Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
+              <form action={signInGoogle}>
+                <Button type="submit" variant="primary" className="text-base px-6 py-3">
+                  Login with Google
+                </Button>
+              </form>
               <Link href={'/spots/'}>
                 <Button variant="outline" className="text-base px-6 py-3">
                   スポットを探す
